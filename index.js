@@ -51,7 +51,7 @@ client.connect((err) => {
           }
         })
         .catch((error) => {
-          res.status(401).send("un authorized access");
+          res.status(401).send("unauthorized access");
         });
     } else {
       res.status(401).send("unauthorized access"); 
