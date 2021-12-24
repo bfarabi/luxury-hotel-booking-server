@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "15.x"
+},
   "name": "server-side",
   "version": "1.0.0",
   "description": "",
