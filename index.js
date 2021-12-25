@@ -10,7 +10,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const admin = require("firebase-admin");
-const serviceAccount = require("./configs/burj-al-arab2-71a03-firebase-adminsdk-l4qek-3e230af003.json");
+const firebaseCon = "./configs/burj-al-arab2-71a03-firebase-adminsdk-l4qek-3e230af003.json"
+const serviceAccount = require(firebaseCon);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
