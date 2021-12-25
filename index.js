@@ -10,10 +10,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const admin = require("firebase-admin");
-const serviceAccount = require("./configs/burj-al-arab2-71a03-firebase-adminsdk-l4qek-3e230af003.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+// const serviceAccount = require("./configs/burj-al-arab2-71a03-firebase-adminsdk-l4qek-3e230af003.json");
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
 
 const { MongoClient } = require("mongodb");
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.fway0.mongodb.net/luxuryHotel?retryWrites=true&w=majority`;
