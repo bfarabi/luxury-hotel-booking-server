@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
+const { initializeApp } = require('firebase-admin/app');
 
 const port = 5000;
 
@@ -9,15 +10,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const admin = require("firebase-admin");
-const firebaseCon = "./configs/burj-al-arab2-71a03-firebase-adminsdk-l4qek-3e230af003.json"
-const serviceAccount = require(firebaseCon);
+const admin = require("firebase-admin"); 
+const serviceAccount = require("./configs/burj-al-arab2-71a03-firebase-adminsdk-l4qek-3e230af003.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
 const { MongoClient } = require("mongodb");
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.fway0.mongodb.net/luxuryHotel?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://g${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.fway0.mongodb.net/luxuryHotel?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
